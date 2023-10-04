@@ -40,7 +40,7 @@ const ProductDetailServiceComponent = ({children}: ScreenTypes.screen) => {
 
   //onProduct Press
   const onProductPress = product =>
-    navigation.navigate('ProductDetail', {product: product});
+    navigation.navigate('ProductDetail', {product_id: product.id});
 
   return children({
     loader,

@@ -1,30 +1,37 @@
-import {product} from '@Cart/interfaces/responses';
-import {getProductRequest, updateCart} from '@Cart/redux/actions';
+import {getProductDetalRequest} from '@Cart/redux/actions';
 import {useAppSelector} from '@redux/root-reducer';
-import {useCallback, useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {ScreenTypes} from '../../interfaces';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
+import {detailRequest} from '@Cart/interfaces/requests';
 
 /* component containing the business logic separated from view for
  api call trigger */
 const ProductServiceComponent = ({children}: ScreenTypes.screen) => {
   //get params from route
   const route = useRoute();
-  const product = route.params?.product;
-  // reducers
-  let loader = useAppSelector(state => state?.cartReducer?.loader);
+  const id = route.params?.product_id;
 
-  const dispatch = useDispatch(); // dispatch action to reducer
+  //local states
+  const [loader, setLoader] = useState(false);
+
+  // reducers
+  let product = useAppSelector(state => state?.cartReducer?.productDetail);
+
+  // dispatch action to reducer
+  const dispatch = useDispatch();
+
   //sagas
-  const onGetProductDetailRequest = () => dispatch(getProductRequest());
-  console.log(product, 'product');
+  const onGetProductDetailRequest = (data: detailRequest) =>
+    dispatch(getProductDetalRequest(data));
 
   //didMount
   useEffect(() => {
-    console.log(product, route, 'product');
-
-    // onGetProductDetailRequest();
+    onGetProductDetailRequest({
+      id: id,
+      setLoader: status => setLoader(status),
+    });
   }, []);
 
   return children({

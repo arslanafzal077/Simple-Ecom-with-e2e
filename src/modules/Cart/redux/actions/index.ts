@@ -1,5 +1,6 @@
 import {product, productList} from '@Cart/interfaces/responses';
 import {ActionTypes} from '../types';
+import {detailRequest} from '@Cart/interfaces/requests';
 
 export const getProductRequest = () => ({
   type: ActionTypes.PRODUCTS_REQUEST,
@@ -20,11 +21,12 @@ export const updateCart = (data: product) => ({
   data,
 });
 
-export const getProductDetalRequest = () => ({
+export const getProductDetalRequest = (data: detailRequest) => ({
   type: ActionTypes.PRODUCT_DETAIL_REQUEST,
+  data,
 });
 
-export const setProductDetail = (productList: productList) => ({
+export const setProductDetail = (product: product) => ({
   type: ActionTypes.SET_PRODUCTS_DETAIL,
-  productList,
+  product,
 });
