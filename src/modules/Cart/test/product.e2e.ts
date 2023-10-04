@@ -19,6 +19,16 @@ export const ProductList = () => {
       .withTimeout(7000);
   });
 
+  it('Go to Product Detail Of 2nd Product', async () => {
+    await element(by.id('product1')).tap();
+    await waitFor(element(by.id('productDetail')))
+      .toBeVisible()
+      .withTimeout(7000);
+    await element(by.traits(['button']))
+      .atIndex(0)
+      .tap();
+  });
+
   it('Add to cart', async () => {
     await expect(element(by.id('addto0'))).toBeVisible();
     await element(by.id('addto0')).tap();

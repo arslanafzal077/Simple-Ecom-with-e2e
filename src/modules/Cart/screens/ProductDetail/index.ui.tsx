@@ -7,7 +7,7 @@ import FastImage from 'react-native-fast-image';
 //view component of product screen
 const ProductComponent = ({loader, product}: ScreenTypes.productDetail) => {
   return (
-    <View style={styles.mainView}>
+    <View testID={'productDetail'} style={styles.mainView}>
       <FastImage
         style={styles.itemImage}
         resizeMode={'cover'}
