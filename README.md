@@ -24,7 +24,7 @@ or
   npx pod-install
 ```
 
-to run the test cases make sure you started you bundler if not started run this command to start
+to run the test cases make sure you started your bundler if not started run this command to start
 ```bash
   npx react-native start
 ```
