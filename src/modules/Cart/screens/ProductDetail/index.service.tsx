@@ -1,5 +1,5 @@
 import {getProductDetalRequest} from '@Cart/redux/actions';
-import {useAppSelector} from '@redux/root-reducer';
+import {useAppSelector} from '@redux/rootReducer';
 import {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {ScreenTypes} from '../../interfaces';

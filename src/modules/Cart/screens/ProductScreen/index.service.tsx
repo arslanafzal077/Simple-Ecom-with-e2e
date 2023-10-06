@@ -1,7 +1,7 @@
 import {product} from '@Cart/interfaces/responses';
 import {getProductRequest, updateCart} from '@Cart/redux/actions';
 import {useNavigation} from '@react-navigation/core';
-import {useAppSelector} from '@redux/root-reducer';
+import {useAppSelector} from '@redux/rootReducer';
 import {useCallback, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {ScreenTypes} from '../../interfaces';

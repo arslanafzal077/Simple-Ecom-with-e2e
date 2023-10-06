@@ -1,6 +1,6 @@
 import {product} from '@Cart/interfaces/responses';
 import {updateCart} from '@Cart/redux/actions';
-import {useAppSelector} from '@redux/root-reducer';
+import {useAppSelector} from '@redux/rootReducer';
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import {ScreenTypes} from '../../interfaces';
