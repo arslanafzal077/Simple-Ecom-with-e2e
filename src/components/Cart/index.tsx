@@ -1,13 +1,8 @@
-import {product} from '@Cart/interfaces/responses';
+import {CartProps} from '@components/interfaces';
 import React, {useCallback} from 'react';
-import {Button, Text, View} from 'react-native';
-interface PROPS {
-  item: product;
-  quantity: number;
-  index: number;
-  onPress: (id: product, quantity: number) => void;
-}
-const Cart = ({item, quantity, onPress, index}: PROPS) => {
+import {Button, StyleSheet, Text, View} from 'react-native';
+
+const Cart = ({item, quantity, onPress, index}: CartProps) => {
   const addToCart = useCallback(() => {
     if (quantity > 0) {
       // check quantity null or unbdefinded
@@ -25,13 +20,7 @@ const Cart = ({item, quantity, onPress, index}: PROPS) => {
   return (
     <View>
       {quantity > 0 ? (
-        <View
-          testID={`item${index}`}
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+        <View testID={`item${index}`} style={styles.cartView}>
           <Button title={'-'} onPress={removeToCart} testID={`sub${index}`} />
           <Text testID={`quantity${index}`}>({quantity})</Text>
           <Button title={'+'} onPress={addToCart} testID={`add${index}`} />
@@ -48,3 +37,11 @@ const Cart = ({item, quantity, onPress, index}: PROPS) => {
 };
 
 export default Cart;
+
+const styles = StyleSheet.create({
+  cartView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
